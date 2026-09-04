@@ -42,3 +42,8 @@ jobs:
           name: retro-immersive-ultimate-fantasy-jar
           path: build/libs/*.jar
           if-no-files-found: error
+          - name: Listar contenido de build/libs (diagnóstico)
+        run: ls -la build/libs/
+
+      - name: Listar contenido del jar final (diagnóstico)
+        run: unzip -l build/libs/*.jar | grep -v "sources" | head -50
