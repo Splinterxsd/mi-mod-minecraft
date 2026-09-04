@@ -1,0 +1,44 @@
+yaml
+name: Build mod
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Instalar JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Instalar Gradle 8.10
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10'
+
+      - name: Generar wrapper del proyecto
+        run: gradle wrapper --gradle-version 8.10
+
+      - name: Dar permiso de ejecución a gradlew
+        run: chmod +x ./gradlew
+
+      - name: Compilar con Gradle (remapJar)
+        run: ./gradlew remapJar --stacktrace
+
+      - name: Subir el .jar como artifact descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: retro-immersive-ultimate-fantasy-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
