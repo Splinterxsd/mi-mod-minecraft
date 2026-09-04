@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "retroimmersiveultimatefantasy:carbon_de_acero"
+  },
+  "result": {
+    "id": "retroimmersiveultimatefantasy:lingote_de_acero",
+    "count": 1
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

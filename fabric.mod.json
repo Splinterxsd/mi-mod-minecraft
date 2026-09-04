@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "retroimmersiveultimatefantasy",
+  "version": "${version}",
+  "name": "Retro-Immersive Ultimate Fantasy",
+  "description": "Overhaul masivo para Minecraft 1.21.2: paisajes monumentales, contenido de Better Than Adventure, ecosistema animal, criaturas míticas, asentamientos élficos/humanos/hadas, sistema social avanzado y el Compendio del Explorador Arcano.",
+  "authors": [
+    "Retro-Immersive Team"
+  ],
+  "contact": {},
+  "license": "ARR",
+  "icon": "assets/retroimmersiveultimatefantasy/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.retroimmersive.ultimatefantasy.RetroImmersiveUltimateFantasy"
+    ],
+    "client": [
+      "com.retroimmersive.ultimatefantasy.RetroImmersiveUltimateFantasyClient"
+    ]
+  },
+  "mixins": [
+    "retroimmersiveultimatefantasy.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "~1.21.2",
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "java": ">=21"
+  },
+  "custom": {}
+}
